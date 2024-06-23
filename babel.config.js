@@ -9,6 +9,7 @@ module.exports = {
         },
       },
     ],
+    'react-native-reanimated/plugin'
     /**
      * Your other plugins
      */

@@ -1,18 +1,22 @@
 import {InitializeStorage} from '@src/context/Storage';
 import Instance from './Instance';
+import ApiUser from './ApiUser';
 
 const ApiAuth = () => {
-  const SignIn = async () => {
+  const SignIn = async (email: string, password: string) => {
     try {
       const Response = await Instance.post('login', {
-        email: 'popo@example.com',
-        password: 'password',
+        email,
+        password,
       });
       const newResponse = await Response.data;
       if (newResponse.code === 200) {
         await InitializeStorage.setStringAsync('token', newResponse?.token);
+        await InitializeStorage.setStringAsync('userId', newResponse?.user?.id);
         await InitializeStorage.setBoolAsync('login', true);
+        await ApiUser().GETUSERDETAIL(newResponse?.user?.id);
       }
+      return newResponse;
     } catch (error) {
       console.log(error, 'error');
       return error;

@@ -1,4 +1,7 @@
-import {createNavigationContainerRef} from '@react-navigation/native';
+import {
+  createNavigationContainerRef,
+  DrawerActions,
+} from '@react-navigation/native';
 import {StackActions, TabActions} from '@react-navigation/native';
 
 export const navigationRef = createNavigationContainerRef();
@@ -17,10 +20,20 @@ const useNavigation = () => {
       navigationRef.navigate(name, params);
     }
   }
+  function drawerNavigate() {
+    if (navigationRef.isReady()) {
+      navigationRef.dispatch(DrawerActions.toggleDrawer());
+    }
+  }
 
   function push(name: string, params?: object) {
     if (navigationRef.isReady()) {
       navigationRef.dispatch(StackActions.push(name, params));
+    }
+  }
+  function replace(name: string, params?: object) {
+    if (navigationRef.isReady()) {
+      navigationRef.dispatch(StackActions.replace(name, params));
     }
   }
   const pop = (totalScreen?: number): void => {
@@ -54,6 +67,8 @@ const useNavigation = () => {
     back,
     tabNavigation,
     backToHome,
+    drawerNavigate,
+    replace,
   };
 };
 

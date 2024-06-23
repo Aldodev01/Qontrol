@@ -9,3 +9,22 @@
   "extends": "@react-native/typescript-config/tsconfig.json",
 
 }
+
+// {
+//   "compilerOptions": {
+//     "allowJs": true,                          
+//     "noEmit": true,                          
+//     "noUnusedLocals": true,   
+//     "noUnusedParameters": true,               
+//     "noImplicitReturns": true,
+//     "allowSyntheticDefaultImports": true,
+//     "skipLibCheck": true,
+//     "resolveJsonModule": true,   
+//     "jsx": "react-native",
+//     "baseUrl": ".",
+//     "paths": {
+//       "@src/*": ["src/*"]
+//     }
+//   },
+//   "extends": "@react-native/typescript-config/tsconfig.json",
+// }

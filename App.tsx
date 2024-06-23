@@ -1,22 +1,21 @@
-import {NavigationContainer} from '@react-navigation/native';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
-import Routes from '@src/routes/Routes';
+import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
 import React from 'react';
-import {navigationRef} from '@src/routes/Navigation';
-import {ApplicationProvider, IconRegistry} from '@ui-kitten/components';
-import * as eva from '@eva-design/eva';
-import {default as theme} from './theme.json';
-import {EvaIconsPack} from '@ui-kitten/eva-icons';
+import {DataProvider, ThemeProvider, useData} from '@src/hooks';
+import SubRoutes from '@src/routes/SubRoutes';
+import { navigationRef } from '@src/routes/Navigation';
 
 export default function App() {
+  const {isDark, theme, setTheme} = useData();
+
+
+
   return (
-    <SafeAreaProvider>
-      <IconRegistry icons={EvaIconsPack} />
-      <ApplicationProvider {...eva} theme={{...eva.dark, ...theme}}>
-        <NavigationContainer ref={navigationRef}>
-          <Routes />
+    <DataProvider>
+      <ThemeProvider theme={theme} setTheme={setTheme}>
+        <NavigationContainer ref={navigationRef} theme={DefaultTheme}>
+          <SubRoutes />
         </NavigationContainer>
-      </ApplicationProvider>
-    </SafeAreaProvider>
+      </ThemeProvider>
+    </DataProvider>
   );
 }

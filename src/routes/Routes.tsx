@@ -1,20 +1,43 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from '@src/screen/HomeScreen';
-import LoginScreen from '@src/screen/LoginScreen';
-import OnBoardScreen from '@src/screen/OnBoardScreen';
 import React from 'react';
 import TabRoutes from './TabRoutes';
+import {Articles, Components, Home, Pro, Profile, Register} from '@src/screens';
+import LoginScreen from '@src/screens/LoginScreen';
+import { InitializeStorage } from '@src/context/Storage';
 
 const Stack = createNativeStackNavigator();
 
 const Routes = () => {
+  const login = InitializeStorage.getString('login');
+  console.log(login, 'hehe');
+  
   return (
     <Stack.Navigator
       initialRouteName="Home"
       screenOptions={{headerShown: false}}>
-      <Stack.Screen name="OnBoard" component={OnBoardScreen} />
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Home" component={Home} options={{title: 'Home'}} />
+
+      <Stack.Screen name="Components" component={Components} />
+
+      <Stack.Screen
+        name="Articles"
+        component={Articles}
+        options={{title: 'Articles'}}
+      />
+
+      <Stack.Screen name="Pro" component={Pro} />
+
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{headerShown: false}}
+      />
+
+      <Stack.Screen
+        name="Register"
+        component={LoginScreen}
+        options={{headerShown: false}}
+      />
       <Stack.Screen name="MainApp" component={TabRoutes} />
     </Stack.Navigator>
   );
