@@ -4,6 +4,7 @@ import ApiUser from './ApiUser';
 
 const ApiAuth = () => {
   const SignIn = async (email: string, password: string) => {
+    InitializeStorage.setBool('loading', true);
     try {
       const Response = await Instance.post('login', {
         email,
@@ -13,8 +14,12 @@ const ApiAuth = () => {
       if (newResponse.code === 200) {
         await InitializeStorage.setStringAsync('token', newResponse?.token);
         await InitializeStorage.setStringAsync('userId', newResponse?.user?.id);
-        await InitializeStorage.setBoolAsync('login', true);
-        await ApiUser().GETUSERDETAIL(newResponse?.user?.id);
+        await InitializeStorage.setBoolAsync('authentication', true);
+        await ApiUser()
+          .GETUSERDETAIL(newResponse?.user?.id)
+          .then(() => {
+            InitializeStorage.setBool('loading', false);
+          });
       }
       return newResponse;
     } catch (error) {
@@ -23,6 +28,7 @@ const ApiAuth = () => {
     }
   };
   const SignOut = async () => {
+    InitializeStorage.setBool('loading', true);
     try {
       const Response = await Instance.post('logout');
       const newResponse = await Response.data;
@@ -31,6 +37,7 @@ const ApiAuth = () => {
         InitializeStorage.setBool('login', false);
         InitializeStorage.clearMemoryCache();
         InitializeStorage.clearStore();
+        InitializeStorage.setBool('loading', false);
       }
     } catch (error) {
       console.log(error, 'error');

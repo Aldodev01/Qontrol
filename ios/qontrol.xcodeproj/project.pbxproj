@@ -11,9 +11,28 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		416A5B12CC62537A4D1E6189 /* libPods-qontrol.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EB1A88DC113269F4B6F08F1 /* libPods-qontrol.a */; };
-		5B0008300DEDFA5FE247BBA9 /* libPods-qontrol-qontrolTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92F49015A8575AA01E72F6C4 /* libPods-qontrol-qontrolTests.a */; };
+		5E730A87E3BAF35FF7F2F62E /* libPods-qontrol-qontrolTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D57B5C77891E893885028FFD /* libPods-qontrol-qontrolTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		BEA4AB67AF82977B5E650BED /* libPods-qontrol.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B12FBC0BD5CEFD2E4B7288A0 /* libPods-qontrol.a */; };
+		BF48A7952C2800E100071BF6 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A7812C2800E100071BF6 /* AntDesign.ttf */; };
+		BF48A7962C2800E100071BF6 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A7822C2800E100071BF6 /* Entypo.ttf */; };
+		BF48A7972C2800E100071BF6 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A7832C2800E100071BF6 /* EvilIcons.ttf */; };
+		BF48A7982C2800E100071BF6 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A7842C2800E100071BF6 /* Feather.ttf */; };
+		BF48A7992C2800E100071BF6 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A7852C2800E100071BF6 /* FontAwesome.ttf */; };
+		BF48A79A2C2800E100071BF6 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A7862C2800E100071BF6 /* FontAwesome5_Brands.ttf */; };
+		BF48A79B2C2800E100071BF6 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A7872C2800E100071BF6 /* FontAwesome5_Regular.ttf */; };
+		BF48A79C2C2800E100071BF6 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A7882C2800E100071BF6 /* FontAwesome5_Solid.ttf */; };
+		BF48A79D2C2800E100071BF6 /* FontAwesome6_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A7892C2800E100071BF6 /* FontAwesome6_Brands.ttf */; };
+		BF48A79E2C2800E100071BF6 /* FontAwesome6_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A78A2C2800E100071BF6 /* FontAwesome6_Regular.ttf */; };
+		BF48A79F2C2800E100071BF6 /* FontAwesome6_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A78B2C2800E100071BF6 /* FontAwesome6_Solid.ttf */; };
+		BF48A7A02C2800E100071BF6 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A78C2C2800E100071BF6 /* Fontisto.ttf */; };
+		BF48A7A12C2800E100071BF6 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A78D2C2800E100071BF6 /* Foundation.ttf */; };
+		BF48A7A22C2800E100071BF6 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A78E2C2800E100071BF6 /* Ionicons.ttf */; };
+		BF48A7A32C2800E100071BF6 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A78F2C2800E100071BF6 /* MaterialCommunityIcons.ttf */; };
+		BF48A7A42C2800E100071BF6 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A7902C2800E100071BF6 /* MaterialIcons.ttf */; };
+		BF48A7A52C2800E100071BF6 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A7912C2800E100071BF6 /* Octicons.ttf */; };
+		BF48A7A62C2800E100071BF6 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A7922C2800E100071BF6 /* SimpleLineIcons.ttf */; };
+		BF48A7A72C2800E100071BF6 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF48A7932C2800E100071BF6 /* Zocial.ttf */; };
 		F0B761DFE2D895F95D68DB80 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 2F52EA264BAAB30F62809D21 /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
@@ -38,14 +57,33 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = qontrol/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = qontrol/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = qontrol/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		1EB1A88DC113269F4B6F08F1 /* libPods-qontrol.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-qontrol.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2F52EA264BAAB30F62809D21 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = qontrol/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		5CDA4CA0B89688BA0CD647E6 /* Pods-qontrol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qontrol.release.xcconfig"; path = "Target Support Files/Pods-qontrol/Pods-qontrol.release.xcconfig"; sourceTree = "<group>"; };
+		2F52EA264BAAB30F62809D21 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = qontrol/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		2FD7169359086F07478CE0F6 /* Pods-qontrol.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qontrol.release.xcconfig"; path = "Target Support Files/Pods-qontrol/Pods-qontrol.release.xcconfig"; sourceTree = "<group>"; };
+		53726DB146C734DB7AFA92EC /* Pods-qontrol-qontrolTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qontrol-qontrolTests.debug.xcconfig"; path = "Target Support Files/Pods-qontrol-qontrolTests/Pods-qontrol-qontrolTests.debug.xcconfig"; sourceTree = "<group>"; };
+		74AD2441CB0FEE42100CE1DE /* Pods-qontrol-qontrolTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qontrol-qontrolTests.release.xcconfig"; path = "Target Support Files/Pods-qontrol-qontrolTests/Pods-qontrol-qontrolTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = qontrol/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		92F49015A8575AA01E72F6C4 /* libPods-qontrol-qontrolTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-qontrol-qontrolTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A029A428A6D805BAE1D5E4C8 /* Pods-qontrol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qontrol.debug.xcconfig"; path = "Target Support Files/Pods-qontrol/Pods-qontrol.debug.xcconfig"; sourceTree = "<group>"; };
-		E296DD239C64F5B38BD3BC63 /* Pods-qontrol-qontrolTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qontrol-qontrolTests.debug.xcconfig"; path = "Target Support Files/Pods-qontrol-qontrolTests/Pods-qontrol-qontrolTests.debug.xcconfig"; sourceTree = "<group>"; };
-		EB89C593996C390B02BEAD3B /* Pods-qontrol-qontrolTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qontrol-qontrolTests.release.xcconfig"; path = "Target Support Files/Pods-qontrol-qontrolTests/Pods-qontrol-qontrolTests.release.xcconfig"; sourceTree = "<group>"; };
+		8EF461A3C6C051C7B47068BB /* Pods-qontrol.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qontrol.debug.xcconfig"; path = "Target Support Files/Pods-qontrol/Pods-qontrol.debug.xcconfig"; sourceTree = "<group>"; };
+		B12FBC0BD5CEFD2E4B7288A0 /* libPods-qontrol.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-qontrol.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF48A7812C2800E100071BF6 /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AntDesign.ttf; sourceTree = "<group>"; };
+		BF48A7822C2800E100071BF6 /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
+		BF48A7832C2800E100071BF6 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
+		BF48A7842C2800E100071BF6 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
+		BF48A7852C2800E100071BF6 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		BF48A7862C2800E100071BF6 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Brands.ttf; sourceTree = "<group>"; };
+		BF48A7872C2800E100071BF6 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Regular.ttf; sourceTree = "<group>"; };
+		BF48A7882C2800E100071BF6 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Solid.ttf; sourceTree = "<group>"; };
+		BF48A7892C2800E100071BF6 /* FontAwesome6_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome6_Brands.ttf; sourceTree = "<group>"; };
+		BF48A78A2C2800E100071BF6 /* FontAwesome6_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome6_Regular.ttf; sourceTree = "<group>"; };
+		BF48A78B2C2800E100071BF6 /* FontAwesome6_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome6_Solid.ttf; sourceTree = "<group>"; };
+		BF48A78C2C2800E100071BF6 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
+		BF48A78D2C2800E100071BF6 /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Foundation.ttf; sourceTree = "<group>"; };
+		BF48A78E2C2800E100071BF6 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
+		BF48A78F2C2800E100071BF6 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialCommunityIcons.ttf; sourceTree = "<group>"; };
+		BF48A7902C2800E100071BF6 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
+		BF48A7912C2800E100071BF6 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
+		BF48A7922C2800E100071BF6 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
+		BF48A7932C2800E100071BF6 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
+		D57B5C77891E893885028FFD /* libPods-qontrol-qontrolTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-qontrol-qontrolTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -54,7 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B0008300DEDFA5FE247BBA9 /* libPods-qontrol-qontrolTests.a in Frameworks */,
+				5E730A87E3BAF35FF7F2F62E /* libPods-qontrol-qontrolTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				416A5B12CC62537A4D1E6189 /* libPods-qontrol.a in Frameworks */,
+				BEA4AB67AF82977B5E650BED /* libPods-qontrol.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +127,7 @@
 		13B07FAE1A68108700A75B9A /* qontrol */ = {
 			isa = PBXGroup;
 			children = (
+				BF48A7942C2800E100071BF6 /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -105,8 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				1EB1A88DC113269F4B6F08F1 /* libPods-qontrol.a */,
-				92F49015A8575AA01E72F6C4 /* libPods-qontrol-qontrolTests.a */,
+				B12FBC0BD5CEFD2E4B7288A0 /* libPods-qontrol.a */,
+				D57B5C77891E893885028FFD /* libPods-qontrol-qontrolTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -145,12 +184,39 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A029A428A6D805BAE1D5E4C8 /* Pods-qontrol.debug.xcconfig */,
-				5CDA4CA0B89688BA0CD647E6 /* Pods-qontrol.release.xcconfig */,
-				E296DD239C64F5B38BD3BC63 /* Pods-qontrol-qontrolTests.debug.xcconfig */,
-				EB89C593996C390B02BEAD3B /* Pods-qontrol-qontrolTests.release.xcconfig */,
+				8EF461A3C6C051C7B47068BB /* Pods-qontrol.debug.xcconfig */,
+				2FD7169359086F07478CE0F6 /* Pods-qontrol.release.xcconfig */,
+				53726DB146C734DB7AFA92EC /* Pods-qontrol-qontrolTests.debug.xcconfig */,
+				74AD2441CB0FEE42100CE1DE /* Pods-qontrol-qontrolTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		BF48A7942C2800E100071BF6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BF48A7812C2800E100071BF6 /* AntDesign.ttf */,
+				BF48A7822C2800E100071BF6 /* Entypo.ttf */,
+				BF48A7832C2800E100071BF6 /* EvilIcons.ttf */,
+				BF48A7842C2800E100071BF6 /* Feather.ttf */,
+				BF48A7852C2800E100071BF6 /* FontAwesome.ttf */,
+				BF48A7862C2800E100071BF6 /* FontAwesome5_Brands.ttf */,
+				BF48A7872C2800E100071BF6 /* FontAwesome5_Regular.ttf */,
+				BF48A7882C2800E100071BF6 /* FontAwesome5_Solid.ttf */,
+				BF48A7892C2800E100071BF6 /* FontAwesome6_Brands.ttf */,
+				BF48A78A2C2800E100071BF6 /* FontAwesome6_Regular.ttf */,
+				BF48A78B2C2800E100071BF6 /* FontAwesome6_Solid.ttf */,
+				BF48A78C2C2800E100071BF6 /* Fontisto.ttf */,
+				BF48A78D2C2800E100071BF6 /* Foundation.ttf */,
+				BF48A78E2C2800E100071BF6 /* Ionicons.ttf */,
+				BF48A78F2C2800E100071BF6 /* MaterialCommunityIcons.ttf */,
+				BF48A7902C2800E100071BF6 /* MaterialIcons.ttf */,
+				BF48A7912C2800E100071BF6 /* Octicons.ttf */,
+				BF48A7922C2800E100071BF6 /* SimpleLineIcons.ttf */,
+				BF48A7932C2800E100071BF6 /* Zocial.ttf */,
+			);
+			name = Fonts;
+			path = "../node_modules/react-native-vector-icons/Fonts";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,12 +226,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "qontrolTests" */;
 			buildPhases = (
-				3989F2B7077E37055A6294B5 /* [CP] Check Pods Manifest.lock */,
+				E1F71B62E13475505B5F1976 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				0D0BE5D4710D1BE661645EC7 /* [CP] Embed Pods Frameworks */,
-				3F68B391689236BFB12BE3CD /* [CP] Copy Pods Resources */,
+				41878983FA5F6CB39D37B200 /* [CP] Embed Pods Frameworks */,
+				BA7BE6F390FE1F45353628C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,13 +247,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "qontrol" */;
 			buildPhases = (
-				6B1E1126A47FEBC30C01D3BB /* [CP] Check Pods Manifest.lock */,
+				CFFAEA74731CF8A9A924974F /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				20C16428E7ECF456B20CE6D0 /* [CP] Embed Pods Frameworks */,
-				AEFE62DDA724112A2EBCC353 /* [CP] Copy Pods Resources */,
+				385F53B640673387D777AE69 /* [CP] Embed Pods Frameworks */,
+				3AE9C67B6E563970E9A3509F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -247,7 +313,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				BF48A7A12C2800E100071BF6 /* Foundation.ttf in Resources */,
+				BF48A7982C2800E100071BF6 /* Feather.ttf in Resources */,
+				BF48A79E2C2800E100071BF6 /* FontAwesome6_Regular.ttf in Resources */,
+				BF48A7A42C2800E100071BF6 /* MaterialIcons.ttf in Resources */,
+				BF48A7A62C2800E100071BF6 /* SimpleLineIcons.ttf in Resources */,
+				BF48A7A72C2800E100071BF6 /* Zocial.ttf in Resources */,
+				BF48A7A22C2800E100071BF6 /* Ionicons.ttf in Resources */,
+				BF48A79B2C2800E100071BF6 /* FontAwesome5_Regular.ttf in Resources */,
+				BF48A7972C2800E100071BF6 /* EvilIcons.ttf in Resources */,
+				BF48A79A2C2800E100071BF6 /* FontAwesome5_Brands.ttf in Resources */,
+				BF48A79F2C2800E100071BF6 /* FontAwesome6_Solid.ttf in Resources */,
+				BF48A7A52C2800E100071BF6 /* Octicons.ttf in Resources */,
+				BF48A7992C2800E100071BF6 /* FontAwesome.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				BF48A7952C2800E100071BF6 /* AntDesign.ttf in Resources */,
+				BF48A7962C2800E100071BF6 /* Entypo.ttf in Resources */,
+				BF48A79C2C2800E100071BF6 /* FontAwesome5_Solid.ttf in Resources */,
+				BF48A7A02C2800E100071BF6 /* Fontisto.ttf in Resources */,
+				BF48A79D2C2800E100071BF6 /* FontAwesome6_Brands.ttf in Resources */,
+				BF48A7A32C2800E100071BF6 /* MaterialCommunityIcons.ttf in Resources */,
 				F0B761DFE2D895F95D68DB80 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,24 +356,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		0D0BE5D4710D1BE661645EC7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-qontrol-qontrolTests/Pods-qontrol-qontrolTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-qontrol-qontrolTests/Pods-qontrol-qontrolTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-qontrol-qontrolTests/Pods-qontrol-qontrolTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		20C16428E7ECF456B20CE6D0 /* [CP] Embed Pods Frameworks */ = {
+		385F53B640673387D777AE69 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -305,29 +373,41 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-qontrol/Pods-qontrol-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3989F2B7077E37055A6294B5 /* [CP] Check Pods Manifest.lock */ = {
+		3AE9C67B6E563970E9A3509F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-qontrol/Pods-qontrol-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-qontrol-qontrolTests-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-qontrol/Pods-qontrol-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-qontrol/Pods-qontrol-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3F68B391689236BFB12BE3CD /* [CP] Copy Pods Resources */ = {
+		41878983FA5F6CB39D37B200 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-qontrol-qontrolTests/Pods-qontrol-qontrolTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-qontrol-qontrolTests/Pods-qontrol-qontrolTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-qontrol-qontrolTests/Pods-qontrol-qontrolTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA7BE6F390FE1F45353628C7 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -344,7 +424,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-qontrol-qontrolTests/Pods-qontrol-qontrolTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6B1E1126A47FEBC30C01D3BB /* [CP] Check Pods Manifest.lock */ = {
+		CFFAEA74731CF8A9A924974F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -366,21 +446,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AEFE62DDA724112A2EBCC353 /* [CP] Copy Pods Resources */ = {
+		E1F71B62E13475505B5F1976 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-qontrol/Pods-qontrol-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-qontrol/Pods-qontrol-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-qontrol-qontrolTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-qontrol/Pods-qontrol-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -416,7 +501,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E296DD239C64F5B38BD3BC63 /* Pods-qontrol-qontrolTests.debug.xcconfig */;
+			baseConfigurationReference = 53726DB146C734DB7AFA92EC /* Pods-qontrol-qontrolTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -443,7 +528,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EB89C593996C390B02BEAD3B /* Pods-qontrol-qontrolTests.release.xcconfig */;
+			baseConfigurationReference = 74AD2441CB0FEE42100CE1DE /* Pods-qontrol-qontrolTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -467,7 +552,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A029A428A6D805BAE1D5E4C8 /* Pods-qontrol.debug.xcconfig */;
+			baseConfigurationReference = 8EF461A3C6C051C7B47068BB /* Pods-qontrol.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -494,7 +579,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5CDA4CA0B89688BA0CD647E6 /* Pods-qontrol.release.xcconfig */;
+			baseConfigurationReference = 2FD7169359086F07478CE0F6 /* Pods-qontrol.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

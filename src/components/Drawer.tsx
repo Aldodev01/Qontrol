@@ -10,13 +10,13 @@ import {
 
 import {Block, Text, Switch, Button, Image} from '@src/components';
 import {useData, useTheme} from '@src/hooks';
-import Routes from './Routes';
-import useNavigation from './Navigation';
+import useNavigation from '@src/routes/Navigation';
+import HomeScreen from '@src/screens/HomeScreen';
 
 const Drawer = createDrawerNavigator();
 
 /* drawer menu screens navigation */
-const ScreensStack = () => {
+const DrawerComponent = () => {
   const {colors} = useTheme();
   const isDrawerOpen = useDrawerStatus();
   const animation = useRef(new Animated.Value(0)).current;
@@ -55,7 +55,7 @@ const ScreensStack = () => {
           borderWidth: isDrawerOpen ? 1 : 0,
         },
       ])}>
-      <Routes />
+      <HomeScreen />
     </Animated.View>
   );
 };
@@ -206,26 +206,29 @@ const DrawerContent = (props: DrawerContentComponentProps) => {
 };
 
 /* drawer menu navigation */
-export default () => {
+const DrawerHome = () => {
   const {gradients} = useTheme();
 
   return (
     <Block gradient={gradients.light}>
       <Drawer.Navigator
+        // @ts-ignore
         drawerContent={props => <DrawerContent {...props} />}
         screenOptions={{
           drawerType: 'slide',
           overlayColor: 'transparent',
-          sceneContainerStyle: {backgroundColor: 'transparent'},
+          sceneContainerStyle: {backgroundColor: 'white'},
           drawerStyle: {
             flex: 1,
             width: '60%',
             borderRightWidth: 0,
-            backgroundColor: 'transparent',
+            backgroundColor: 'white',
           },
         }}>
-        <Drawer.Screen name="Aldodevv" component={ScreensStack} />
+        <Drawer.Screen name="DrawerHomeScreen" component={DrawerComponent} />
       </Drawer.Navigator>
     </Block>
   );
 };
+
+export default DrawerHome;

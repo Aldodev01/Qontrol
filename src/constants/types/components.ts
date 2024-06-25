@@ -487,6 +487,16 @@ export interface IImageProps extends ImageProps, ISpacing {
    */
   rounded?: boolean;
   /**
+   * Renders a predefined theme sizes.borderRadius & overflow: 'hidden'
+   * @see https://reactnative.dev/docs/image-style-props#borderradius
+   */
+  width?: number;
+  /**
+   * Renders a predefined theme sizes.borderRadius & overflow: 'hidden'
+   * @see https://reactnative.dev/docs/image-style-props#borderradius
+   */
+  height?: number;
+  /**
    * Renders a custom borderRadius value
    * @see https://reactnative.dev/docs/image-style-props#borderradius
    */
