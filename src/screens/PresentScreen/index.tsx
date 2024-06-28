@@ -3,147 +3,108 @@ import {useTheme} from '@src/hooks';
 import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, PermissionsAndroid, Platform} from 'react-native';
 import MapboxGL from '@rnmapbox/maps';
+import Geolocation from '@react-native-community/geolocation';
+import useNavigation from '@src/routes/Navigation';
 
 MapboxGL.setAccessToken(
   'sk.eyJ1IjoiYWxkb2RldnYiLCJhIjoiY2x4dWRyd2t4MGYyazJrc2EwNm90amJnZyJ9.IJDelc9a-OWfwMHNrKBITg',
 );
 
-const RADIUS = 1000; // Radius in meters
-const CENTER_COORDINATE: [number, number] = [
-  -6.2173474552351715, 106.81392048485577,
-]; // Center coordinates
+const RADIUS = 100; // Radius in meters
+const CENTER_COORDINATE: number[] = [106.81363389803451, -6.2168881]; // Center coordinates
+const cunterCoordinate: [number, number] = [106.81363389803451, -6.2168881]; // Center coordinates
 
 const PresentScreen = () => {
-  const {assets, colors, gradients, sizes} = useTheme();
-
   const [userLocation, setUserLocation] = useState<[number, number] | null>(
     null,
   );
-  const [isInsideRadius, setIsInsideRadius] = useState<boolean | null>(null);
+  const {navigate} = useNavigation();
 
   useEffect(() => {
-    const requestLocationPermission = async () => {
-      if (Platform.OS === 'android') {
-        const granted = await PermissionsAndroid.request(
+    const checkLocationPermission = async () => {
+      if (Platform.OS === 'ios') {
+        Geolocation.requestAuthorization();
+        getLocation();
+      } else if (Platform.OS === 'android') {
+        const granted = await PermissionsAndroid.check(
           PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-          {
-            title: 'Location Permission',
-            message: 'This app needs access to your location.',
-            buttonNeutral: 'Ask Me Later',
-            buttonNegative: 'Cancel',
-            buttonPositive: 'OK',
-          },
         );
-        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-          getUserLocation();
+        if (!granted) {
+          const result = await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+          );
+          if (result === PermissionsAndroid.RESULTS.GRANTED) {
+            getLocation();
+          } else {
+            navigate('HomeScreen');
+          }
         } else {
-          console.log('Location permission denied');
+          getLocation();
         }
-      } else {
-        getUserLocation();
       }
     };
 
-    requestLocationPermission();
+    const getLocation = () => {
+      Geolocation.getCurrentPosition(
+        position => {
+          const {latitude, longitude} = position.coords;
+          setUserLocation([longitude, latitude]);
+        },
+        error => {
+          console.error(error);
+          navigate('HomeScreen');
+        },
+        {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+      );
+    };
+
+    checkLocationPermission();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const getUserLocation = () => {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        const {longitude, latitude} = position.coords;
-        setUserLocation([longitude, latitude]);
-        checkIfInsideRadius([longitude, latitude]);
-      },
-      error => {
-        console.error(error);
-      },
-      {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
-    );
-  };
+  console.log(userLocation, "hehe");
+  
 
-  const checkIfInsideRadius = (location: [number, number]) => {
-    const distance = getDistance(CENTER_COORDINATE, location);
-    setIsInsideRadius(distance <= RADIUS);
-  };
+  const defaultCoordinates: [number, number] = [0, 0];
 
-  const getDistance = (coord1: [number, number], coord2: [number, number]) => {
-    const toRad = (x: number) => (x * Math.PI) / 180;
-    const [lon1, lat1] = coord1;
-    const [lon2, lat2] = coord2;
-
-    const R = 6371e3; // Earth's radius in meters
-    const φ1 = toRad(lat1);
-    const φ2 = toRad(lat2);
-    const Δφ = toRad(lat2 - lat1);
-    const Δλ = toRad(lon2 - lon1);
-
-    const a =
-      Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
-      Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
-    return R * c; // Distance in meters
-  };
   return (
-    <Image
-      background
-      source={assets.background}
-      padding={sizes.padding}
-      style={{flex: 1}}>
-      <Block safe justify="center">
-        <Block card flex={0} padding={sizes.sm} marginBottom={sizes.sm}>
-          <Text h4 center semibold marginBottom={sizes.sm}>
-            Title
-          </Text>
-        </Block>
-      </Block>
-      <View style={styles.container}>
-        <MapboxGL.MapView style={styles.map}>
-          <MapboxGL.Camera
-            centerCoordinate={CENTER_COORDINATE}
-            zoomLevel={14}
-          />
-
-          <MapboxGL.ShapeSource
-            id="circleSource"
-            shape={{
-              type: 'FeatureCollection',
-              features: [
-                {
-                  properties: {},
-                  type: 'Feature',
-                  geometry: {
-                    type: 'Point',
-                    coordinates: CENTER_COORDINATE,
-                  },
-                },
-              ],
-            }}>
-            <MapboxGL.CircleLayer
-              id="circleLayer"
-              style={{
-                circleRadius: RADIUS,
-                circleColor: 'rgba(0, 0, 255, 0.3)',
-              }}
-            />
-          </MapboxGL.ShapeSource>
-
-          {userLocation && (
-            <MapboxGL.PointAnnotation id="" coordinate={userLocation}>
-              <View style={styles.annotationContainer}>
-                <View style={styles.annotationFill} />
-              </View>
-            </MapboxGL.PointAnnotation>
-          )}
-        </MapboxGL.MapView>
-
-        {isInsideRadius === false && (
-          <View style={styles.alertContainer}>
-            <Text style={styles.alertText}>You are outside the radius!</Text>
-          </View>
-        )}
-      </View>
-    </Image>
+    <MapboxGL.MapView style={styles.map}>
+      {/* <MapboxGL.Camera centerCoordinate={cunterCoordinate} zoomLevel={5} /> */}
+      <MapboxGL.ShapeSource
+        id="circleSource"
+        shape={{
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: CENTER_COORDINATE,
+          },
+          properties: {
+            name: 'My Circle',
+            description: 'This is a circle with a 1000m radius.',
+            id: 1,
+            createdAt: new Date().toISOString(),
+            additionalInfo: {
+              type: 'circle',
+              radius: 10000,
+              units: 'meters',
+            },
+          },
+        }}>
+        <MapboxGL.Camera
+          centerCoordinate={userLocation || defaultCoordinates}
+          zoomLevel={userLocation ? 5 : 0} // Adjust zoom level based on availability of userLocation
+        />
+        <MapboxGL.CircleLayer
+          id="circleLayer"
+          style={{
+            circleRadius: 100,
+            circleColor: 'rgba(55, 148, 179, 0.5)',
+            circleStrokeWidth: 1,
+            circleStrokeColor: 'rgba(55, 148, 179, 1)',
+          }}
+        />
+      </MapboxGL.ShapeSource>
+    </MapboxGL.MapView>
   );
 };
 

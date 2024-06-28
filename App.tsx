@@ -3,6 +3,7 @@ import React from 'react';
 import {DataProvider, ThemeProvider, useData} from '@src/hooks';
 import {navigationRef} from '@src/routes/Navigation';
 import Routes from '@src/routes/Routes';
+import Toast from 'react-native-toast-message';
 
 export default function App() {
   const {theme, setTheme} = useData();
@@ -14,6 +15,7 @@ export default function App() {
           <Routes />
         </NavigationContainer>
       </ThemeProvider>
+      <Toast />
     </DataProvider>
   );
 }

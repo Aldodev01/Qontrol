@@ -2366,6 +2366,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-community/geolocation@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "@react-native-community/geolocation@npm:3.2.1"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 9d2749a9a86697f1b0da7ebf873d444efbf926eedee89a35810016385b81005d4802cbd7d1188ebfdfb146a41d5a11b8c907ee3ce8b434a4929fd81cac100f75
+  languageName: node
+  linkType: hard
+
 "@react-native-masked-view/masked-view@npm:^0.3.1":
   version: 0.3.1
   resolution: "@react-native-masked-view/masked-view@npm:0.3.1"
@@ -5790,6 +5800,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gifted-charts-core@npm:^0.1.7":
+  version: 0.1.7
+  resolution: "gifted-charts-core@npm:0.1.7"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: a6df279f31f413268eaf4dae22a77e074df42612d80ddd9ab47ac0f78dfc7e378b91bc937b9e4b9fc61bf28f5117d8fad8a5c5f5a53141f2790cf8940df481d7
+  languageName: node
+  linkType: hard
+
 "glob-parent@npm:^5.1.2":
   version: 5.1.2
   resolution: "glob-parent@npm:5.1.2"
@@ -8737,6 +8757,7 @@ __metadata:
     "@babel/runtime": ^7.20.0
     "@react-native-async-storage/async-storage": ^1.23.1
     "@react-native-community/blur": ^4.4.0
+    "@react-native-community/geolocation": ^3.2.1
     "@react-native-masked-view/masked-view": ^0.3.1
     "@react-native/babel-preset": 0.74.84
     "@react-native/eslint-config": 0.74.84
@@ -8762,6 +8783,9 @@ __metadata:
     react-dom: ^18.3.1
     react-native: 0.74.2
     react-native-gesture-handler: ^2.17.0
+    react-native-get-location: ^4.0.1
+    react-native-gifted-charts: ^1.4.11
+    react-native-image-picker: ^7.1.2
     react-native-keyboard-aware-scroll-view: ^0.9.5
     react-native-linear-gradient: ^2.8.3
     react-native-mmkv-storage: ^0.9.1
@@ -8770,6 +8794,7 @@ __metadata:
     react-native-safe-area-context: ^4.10.4
     react-native-screens: ^3.31.1
     react-native-svg: ^15.3.0
+    react-native-toast-message: ^2.2.0
     react-native-vector-icons: ^10.1.0
     react-native-web: ^0.19.12
     react-test-renderer: 18.2.0
@@ -8914,6 +8939,45 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-get-location@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "react-native-get-location@npm:4.0.1"
+  peerDependencies:
+    react-native: ">=0.60"
+  checksum: c3d46d4a8d6daa6786424cb31d626ec8640665de5c8c4f576bf6fd1a84e2b0c8f6daa75621e62c76788de619e15ee84c8d9f669072a9d695aab0acb6d06e49e1
+  languageName: node
+  linkType: hard
+
+"react-native-gifted-charts@npm:^1.4.11":
+  version: 1.4.11
+  resolution: "react-native-gifted-charts@npm:1.4.11"
+  dependencies:
+    gifted-charts-core: ^0.1.7
+  peerDependencies:
+    expo-linear-gradient: "*"
+    react: "*"
+    react-native: "*"
+    react-native-linear-gradient: "*"
+    react-native-svg: "*"
+  peerDependenciesMeta:
+    expo-linear-gradient:
+      optional: true
+    react-native-linear-gradient:
+      optional: true
+  checksum: 47c0e0f2e0ccf203cc94f766b4acbf44a8ba13b39a14e3ea4a0648c25ebab34d59504e74f08f7d2a81dbf3b56d4eff38684f5495b4d78ad92099b3fd1203df6d
+  languageName: node
+  linkType: hard
+
+"react-native-image-picker@npm:^7.1.2":
+  version: 7.1.2
+  resolution: "react-native-image-picker@npm:7.1.2"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: af52328b7cb06c28549442f0d923cfa92dde8d5a968a642336df4c882f81adbf0e5e606a14de27f96883a76fa1e03230061c4080011c9107942edebc8e09c478
+  languageName: node
+  linkType: hard
+
 "react-native-iphone-x-helper@npm:^1.0.3":
   version: 1.3.1
   resolution: "react-native-iphone-x-helper@npm:1.3.1"
@@ -9019,6 +9083,16 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: e976878361c100639ab4f9bd2cd042f526b28890cc0052139b36a5ebde44cd3b1a54c6dd3b5e391fe10a998767a994748fc6ee3f1b356154418828d12f98d77a
+  languageName: node
+  linkType: hard
+
+"react-native-toast-message@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "react-native-toast-message@npm:2.2.0"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: b286b8d5ca0f21737c2e0a8e9c2d6dab2c06a3895335aa541c69eeb42d526cc6f3951069e59d8d346d3e6cafb8feaa450c35b0efe7c3d51ff81351d1477e71eb
   languageName: node
   linkType: hard
 

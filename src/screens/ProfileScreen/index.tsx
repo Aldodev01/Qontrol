@@ -1,134 +1,176 @@
+import ApiAuth from '@src/api/ApiAuthentication';
 import ApiUser from '@src/api/ApiUser';
 import {Block, Button, Image, Text} from '@src/components';
-import {InitializeStorage} from '@src/context/Storage';
-import {useData, useTheme} from '@src/hooks';
+import {InitializeStorage, useStorage} from '@src/context/Storage';
+import {useTheme} from '@src/hooks';
 import useNavigation from '@src/routes/Navigation';
-import React, {useCallback, useEffect} from 'react';
-import {Alert, Linking, Platform} from 'react-native';
+import {TUser} from '@src/types/TUser';
+import React, {useEffect, useState} from 'react';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import Toast from 'react-native-toast-message';
 import Icon from 'react-native-vector-icons/Ionicons';
-const isAndroid = Platform.OS === 'android';
+import {
+  ImageLibraryOptions,
+  launchImageLibrary,
+} from 'react-native-image-picker';
+import FontIcon from 'react-native-vector-icons/FontAwesome';
 
 const ProfileScreen = () => {
-  const {user} = useData();
-  const {GETUSERDETAIL} = ApiUser();
-  const {back} = useNavigation();
-
-  const {assets, colors, sizes} = useTheme();
+  const {GETUSERDETAIL, PUTUSERPROFILE} = ApiUser();
+  const {SignOut} = ApiAuth();
+  const {replace, navigate} = useNavigation();
+  const {setIsLogin, setToken, setUserId, setLoading, token} = useStorage();
+  const [user, setUser] = useState<TUser>();
+  const {assets, colors, sizes, icons, gradients} = useTheme();
   const userId = InitializeStorage.getString('userId');
-  const IMAGE_SIZE = (sizes.width - (sizes.padding + sizes.sm) * 2) / 3;
-  const IMAGE_VERTICAL_SIZE =
-    (sizes.width - (sizes.padding + sizes.sm) * 2) / 2;
-  const IMAGE_MARGIN = (sizes.width - IMAGE_SIZE * 3 - sizes.padding * 2) / 2;
-  const IMAGE_VERTICAL_MARGIN =
-    (sizes.width - (IMAGE_VERTICAL_SIZE + sizes.sm) * 2) / 2;
+  // const IMAGE_SIZE = (sizes.width - (sizes.padding + sizes.sm) * 2) / 3;
+  // const IMAGE_VERTICAL_SIZE =
+  //   (sizes.width - (sizes.padding + sizes.sm) * 2) / 2;
+  // const IMAGE_MARGIN = (sizes.width - IMAGE_SIZE * 3 - sizes.padding * 2) / 2;
+  // const IMAGE_VERTICAL_MARGIN =
+  //   (sizes.width - (IMAGE_VERTICAL_SIZE + sizes.sm) * 2) / 2;
 
-  const handleSocialLink = useCallback(
-    (type: 'twitter' | 'dribbble') => {
-      const url =
-        type === 'twitter'
-          ? `https://twitter.com/${user?.social?.twitter}`
-          : `https://dribbble.com/${user?.social?.dribbble}`;
-
-      try {
-        Linking.openURL(url);
-      } catch (error) {
-        Alert.alert(`Cannot open URL: ${url}`);
+  const handleChoosePhoto = () => {
+    const options: ImageLibraryOptions = {
+      mediaType: 'photo',
+      quality: 1,
+    };
+    launchImageLibrary(options, response => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.errorCode) {
+        console.log('ImagePicker Error: ', response.errorMessage);
+      } else if (response.assets && response.assets.length > 0) {
+        const selectedImage = response.assets[0];
+        PUTUSERPROFILE(userId, selectedImage, token).then(async res => {
+          if (res.code === 200) {
+            Toast.show({
+              type: 'success',
+              text1: 'Foto Profil Berhasil',
+            });
+            GetingUserData();
+          }
+        });
       }
-    },
-    [user],
-  );
-
-  console.log(userId, 'haha');
-  useEffect(() => {
-    GETUSERDETAIL(userId).then(res => {
-      console.log(res);
     });
+  };
+
+  const Logout = () => {
+    SignOut(userId)
+      .then(async res => {
+        if ((await res.code) === 200) {
+          Toast.show({
+            type: 'success',
+            text1: 'Sampai jumpa kembali ya',
+          });
+          setIsLogin(false);
+          setToken(res.token);
+          setUserId(res.user.id);
+          setLoading(false);
+          replace('LoginScreen');
+        } else {
+          setLoading(false);
+          setIsLogin(false);
+          replace('LoginScreen');
+          Toast.show({
+            type: 'error',
+            text1: 'Gagal Keluar, Silahkan Coba Lagi nanti',
+          });
+        }
+      })
+      .catch(() => {
+        setLoading(false);
+        setToken('');
+        setUserId('');
+        setIsLogin(false);
+        Toast.show({
+          type: 'error',
+          text1: 'Gagal Keluar, Silahkan Coba Lagi nanti',
+        });
+      });
+  };
+
+  const GetingUserData = () => {
+    GETUSERDETAIL(userId, token).then(res => {
+      setUser(res?.data);
+    });
+  };
+  useEffect(() => {
+    GetingUserData();
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <Block safe marginTop={sizes.md}>
-      <Block
-        scroll
-        paddingHorizontal={sizes.s}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{paddingBottom: sizes.padding}}>
-        <Block flex={0}>
+    <View style={{backgroundColor: colors.background, flex: 1}}>
+      <Image
+        background
+        resizeMode="cover"
+        height={sizes.height * 0.2}
+        borderBottomLeftRadius={sizes.borderBottomLeftRadius}
+        borderBottomRightRadius={sizes.borderBottomRightRadius}
+        source={assets.background}>
+        <Text h4 center white marginTop={sizes.md}>
+          Qontrol
+        </Text>
+        <Text p size={10} center white>
+          Absensi Praktis, mudahkan mengatur kinerjamu
+        </Text>
+      </Image>
+      <View style={styles.imageWraper}>
+        <View style={styles.imageContent}>
           <Image
-            background
-            resizeMode="cover"
-            padding={sizes.sm}
-            paddingBottom={sizes.l}
-            radius={sizes.cardRadius}
-            source={assets.background}>
-            <Button row flex={0} justify="flex-start" onPress={back}>
-              <Image
-                radius={0}
-                width={10}
-                height={18}
-                color={colors.white}
-                source={assets.arrow}
-                transform={[{rotate: '180deg'}]}
-              />
-              <Text p white marginLeft={sizes.s}>
-                Title
-              </Text>
-            </Button>
-            <Block flex={0} align="center">
-              <Image
-                width={64}
-                height={64}
-                marginBottom={sizes.sm}
-                source={{uri: user?.avatar}}
-              />
-              <Text h5 center white>
-                {user?.name}
-              </Text>
-              <Text p center white>
-                {user?.department}
-              </Text>
-              <Block row marginVertical={sizes.m}>
-                <Button
-                  white
-                  outlined
-                  shadow={false}
-                  radius={sizes.m}
-                  onPress={() => {
-                    Alert.alert(`Follow ${user?.name}`);
-                  }}>
-                  <Block
-                    justify="center"
-                    radius={sizes.m}
-                    paddingHorizontal={sizes.m}
-                    color="rgba(255,255,255,0.2)">
-                    <Text white bold transform="uppercase">
-                      Following
-                    </Text>
-                  </Block>
-                </Button>
-                <Button
-                  shadow={false}
-                  radius={sizes.m}
-                  marginHorizontal={sizes.sm}
-                  color="rgba(255,255,255,0.2)"
-                  outlined={String(colors.white)}
-                  onPress={() => handleSocialLink('twitter')}>
-                  <Icon size={18} name="logo-twitter" color={colors.white} />
-                </Button>
-                <Button
-                  shadow={false}
-                  radius={sizes.m}
-                  color="rgba(255,255,255,0.2)"
-                  outlined={String(colors.white)}
-                  onPress={() => handleSocialLink('dribbble')}>
-                  <Icon size={18} name="logo-dribbble" color={colors.white} />
-                </Button>
-              </Block>
-            </Block>
-          </Image>
+            width={100}
+            height={100}
+            radius={99999}
+            source={{uri: user?.profile_pic}}
+          />
+          <TouchableOpacity
+            style={{
+              position: 'absolute',
+              right: 10,
+              bottom: 10,
+              backgroundColor: 'white',
+              borderRadius: 99999,
+              padding: 5,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+            onPress={handleChoosePhoto}>
+            <FontIcon size={20} name="edit" color={colors.primary} />
+          </TouchableOpacity>
+        </View>
+        <View>
+          <Text h5 center black>
+            {user?.username}
+          </Text>
+          <Text p center black>
+            {user?.employee_no}
+          </Text>
+        </View>
+      </View>
 
-          {/* profile: stats */}
-          <Block
+      <Block marginTop={-10} paddingHorizontal={sizes.sm} flex={1}>
+        <Button
+          activeOpacity={0.3}
+          onPress={() => navigate('EditProfileScreen')}
+          marginTop={sizes.xs}
+          flex={1}
+          row
+          align="center"
+          justify="space-between">
+          <Text p>Ganti Profile</Text>
+          <Image
+            width={10}
+            height={18}
+            color={colors.icon}
+            source={icons.arrow}
+          />
+        </Button>
+        <View style={{height: 100}} />
+        <View style={{height: 100}} />
+
+        {/* profile: stats */}
+        {/* <Block
             flex={0}
             radius={sizes.sm}
             shadow={!isAndroid} // disabled shadow on Android due to blur overlay + elevation issue
@@ -159,19 +201,17 @@ const ProfileScreen = () => {
                 <Text>Following</Text>
               </Block>
             </Block>
-          </Block>
-
-          {/* profile: about me */}
+          </Block> */}
+        {/*
           <Block paddingHorizontal={sizes.sm}>
             <Text h5 semibold marginBottom={sizes.s} marginTop={sizes.sm}>
               About Me
             </Text>
             <Text p lineHeight={26}>
-              {user?.about}
+              {user?.email}
             </Text>
           </Block>
 
-          {/* profile: photo album */}
           <Block paddingHorizontal={sizes.sm} marginTop={sizes.s}>
             <Block row align="center" justify="space-between">
               <Text h5 semibold>
@@ -212,11 +252,40 @@ const ProfileScreen = () => {
                 />
               </Block>
             </Block>
-          </Block>
-        </Block>
+          </Block>*/}
       </Block>
-    </Block>
+      <Block paddingHorizontal={sizes.sm}>
+        <Button
+          row
+          gradient={gradients.primary}
+          onPress={Logout}
+          marginBottom={sizes.base}>
+          <Text marginRight={sizes.xs} white bold transform="uppercase">
+            Keluar
+          </Text>
+          <Icon size={18} name="log-out-outline" color={colors.white} />
+        </Button>
+      </Block>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  imageContent: {
+    zIndex: 2,
+    borderRadius: 99999,
+    padding: 10,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
+  },
+  imageWraper: {
+    flex: 1,
+    marginTop: -60,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default ProfileScreen;

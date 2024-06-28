@@ -1,6 +1,5 @@
 import {InitializeStorage} from '@src/context/Storage';
 import Instance from './Instance';
-import ApiUser from './ApiUser';
 
 const ApiAuth = () => {
   const SignIn = async (email: string, password: string) => {
@@ -11,36 +10,22 @@ const ApiAuth = () => {
         password,
       });
       const newResponse = await Response.data;
-      if (newResponse.code === 200) {
-        await InitializeStorage.setStringAsync('token', newResponse?.token);
-        await InitializeStorage.setStringAsync('userId', newResponse?.user?.id);
-        await InitializeStorage.setBoolAsync('authentication', true);
-        await ApiUser()
-          .GETUSERDETAIL(newResponse?.user?.id)
-          .then(() => {
-            InitializeStorage.setBool('loading', false);
-          });
-      }
       return newResponse;
     } catch (error) {
-      console.log(error, 'error');
+      InitializeStorage.setBool('loading', false);
+      console.error(error, 'error');
       return error;
     }
   };
-  const SignOut = async () => {
+  const SignOut = async (id: string) => {
     InitializeStorage.setBool('loading', true);
     try {
-      const Response = await Instance.post('logout');
+      const Response = await Instance.post(`logout/${id}`);
       const newResponse = await Response.data;
-      if (newResponse?.message === 'Logout successful') {
-        InitializeStorage.setString('token', '');
-        InitializeStorage.setBool('login', false);
-        InitializeStorage.clearMemoryCache();
-        InitializeStorage.clearStore();
-        InitializeStorage.setBool('loading', false);
-      }
+      return newResponse;
     } catch (error) {
-      console.log(error, 'error');
+      InitializeStorage.setBool('loading', false);
+      console.error(error, 'error');
       return error;
     }
   };

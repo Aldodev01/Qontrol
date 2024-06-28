@@ -13,6 +13,7 @@ export const useStorage = () => {
     InitializeStorage,
     false,
   );
+  const [loader, setLoader] = useMMKVStorage('load', InitializeStorage, false);
   const [isLogin, setIsLogin] = useMMKVStorage(
     'authentication',
     InitializeStorage,
@@ -35,5 +36,7 @@ export const useStorage = () => {
     setUserId,
     loading,
     setLoading,
+    loader,
+    setLoader,
   };
 };

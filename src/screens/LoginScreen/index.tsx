@@ -5,11 +5,21 @@ import * as regex from '@src/constants/regex';
 import {Block, Button, Input, Image, Text} from '@src/components';
 import {Platform} from 'react-native';
 import ApiAuth from '@src/api/ApiAuthentication';
+import {useStorage} from '@src/context/Storage';
+import Toast from 'react-native-toast-message';
+import ApiUser from '@src/api/ApiUser';
+import useNavigation from '@src/routes/Navigation';
 const isAndroid = Platform.OS === 'android';
 
 const LoginScreen = () => {
+  const {setIsLogin, setToken, setUserId, setLoading, token, loading} = useStorage();
+  console.log(token, 'hjehe');
+
   const {assets, colors, gradients, sizes} = useTheme();
+  const {replace} = useNavigation();
   const {SignIn} = ApiAuth();
+  const {GETUSERDETAIL} = ApiUser();
+
   //   const {back} = useNavigation();
   const [isValid, setIsValid] = useState<TLoginValidation>({
     email: false,
@@ -29,14 +39,52 @@ const LoginScreen = () => {
 
   const handleLogin = useCallback(() => {
     if (!Object.values(isValid).includes(false)) {
+      setLoading(true);
       SignIn(logination.email, logination.password)
-        .then(res => {
-          console.log('res', res);
+        .then(async res => {
+          if (res.code === 200) {
+            setToken(res.token);
+            setUserId(res.user.id);
+            GETUSERDETAIL(res?.user?.id, res.token).then(ros => {
+              if (ros.code === 200) {
+                Toast.show({
+                  type: 'success',
+                  text1: 'Selamat datang di Qontrol',
+                });
+                setIsLogin(true);
+                setLoading(false);
+                replace('MainApp');
+              } else {
+                setLoading(false);
+                setIsLogin(false);
+                replace('LoginScreen');
+                Toast.show({
+                  type: 'error',
+                  text1: 'Gagal Masuk, Silahkan Coba Lagi',
+                });
+              }
+            });
+          } else if (res.code === 404) {
+            setLoading(false);
+            setIsLogin(false);
+            setToken('');
+            setUserId('');
+            Toast.show({
+              type: 'info',
+              text1: 'Email atau password salah',
+            });
+          }
         })
-        .catch(err => {
-          console.error('errx', err);
+        .catch(() => {
+          setLoading(false);
+          setToken('');
+          setUserId('');
+          setIsLogin(false);
+          Toast.show({
+            type: 'error',
+            text1: 'Gagal Masuk, Silahkan Coba Lagi',
+          });
         });
-      console.log('handleSignUp', logination);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isValid, logination]);
@@ -59,17 +107,26 @@ const LoginScreen = () => {
             padding={sizes.sm}
             radius={sizes.cardRadius}
             source={assets.background}
-            height={sizes.height * 0.4}>
+            height={sizes.height * 0.35}>
             <Text h4 center white marginBottom={sizes.md}>
               Welcome to Qontrol
             </Text>
+            <Block center row flex={1}>
+              <Image
+                resizeMode="contain"
+                padding={sizes.sm}
+                source={assets.logo}
+                width={70}
+                height={70}
+              />
+            </Block>
           </Image>
         </Block>
         {/* login form */}
         <Block
           keyboard
           behavior={!isAndroid ? 'padding' : 'height'}
-          marginTop={-(sizes.height * 0.2 - sizes.l)}>
+          marginTop={-(sizes.height * 0.1 - sizes.l)}>
           <Block
             flex={0}
             radius={sizes.sm}
@@ -88,7 +145,7 @@ const LoginScreen = () => {
               {/* form inputs */}
               <Block paddingHorizontal={sizes.sm}>
                 <Input
-                  white
+                  primary
                   autoCapitalize="none"
                   marginBottom={sizes.m}
                   label={'Email'}
@@ -99,7 +156,7 @@ const LoginScreen = () => {
                   onChangeText={value => handleChange({email: value})}
                 />
                 <Input
-                  white
+                  primary
                   secureTextEntry
                   autoCapitalize="none"
                   marginBottom={sizes.m}
@@ -124,6 +181,9 @@ const LoginScreen = () => {
             </Block>
           </Block>
         </Block>
+        <Text p size={10} center black marginTop={sizes.md}>
+          © 2024 Qontrol. All rights reserved
+        </Text>
       </Block>
     </Block>
   );

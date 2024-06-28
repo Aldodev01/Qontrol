@@ -174,6 +174,8 @@ export interface ThemeSizes {
   linkSize: number;
 
   multiplier: number;
+  borderBottomLeftRadius: number;
+  borderBottomRightRadius: number;
 }
 
 export interface ThemeSpacing {

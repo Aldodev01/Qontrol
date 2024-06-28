@@ -43,7 +43,7 @@ export const COLORS: ThemeColors = {
 
   /** UI colors for navigation & card */
   card: '#FFFFFF',
-  background: '#E9ECEF',
+  background: '#FFFFFF',
 
   /** UI color for shadowColor */
   shadow: '#000000',
@@ -126,6 +126,8 @@ export const SIZES: ThemeSizes = {
   shadowOpacity: 0.07,
   shadowRadius: 4,
   elevation: 2,
+  borderBottomLeftRadius: 20,
+  borderBottomRightRadius: 20,
 
   // input sizes
   inputHeight: 46,
