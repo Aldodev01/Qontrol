@@ -91,9 +91,21 @@ const ProfileScreen = () => {
   };
 
   const GetingUserData = () => {
-    GETUSERDETAIL(userId, token).then(res => {
-      setUser(res?.data);
-    });
+    GETUSERDETAIL(userId, token)
+      .then(res => {
+        setUser(res?.data);
+      })
+      .catch(err => {
+        console.error(err);
+        setIsLogin(false);
+        setToken('');
+        setUserId('');
+        replace('LoginScreen');
+        Toast.show({
+          type: 'error',
+          text1: 'Gagal Keluar, Silahkan Coba Lagi nanti',
+        });
+      });
   };
   useEffect(() => {
     GetingUserData();
@@ -122,7 +134,11 @@ const ProfileScreen = () => {
             width={100}
             height={100}
             radius={99999}
-            source={{uri: user?.profile_pic}}
+            source={
+              user?.profile_pic
+                ? {uri: user?.profile_pic}
+                : require('@src/assets/images/card5.png')
+            }
           />
           <TouchableOpacity
             style={{

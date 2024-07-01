@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import useNavigation from './Navigation';
 import PresentScreen from '@src/screens/PresentScreen';
 import ProfileScreen from '@src/screens/ProfileScreen';
-import DrawerHome from '@src/components/Drawer';
+import HomeScreen from '@src/screens/HomeScreen';
 
 const Tab = createBottomTabNavigator();
 export default function TabRoutes() {
@@ -20,7 +20,7 @@ export default function TabRoutes() {
       to: 'DrawerScreen',
       iconActive: 'view-dashboard',
       iconInActive: 'view-dashboard-outline',
-      component: DrawerHome,
+      component: HomeScreen,
     },
     {
       name: 'Present',

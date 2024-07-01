@@ -8,12 +8,17 @@ export const InitializeStorage = new MMKVLoader()
 export const useStorage = () => {
   const [token, setToken] = useMMKVStorage('token', InitializeStorage, '');
   const [userId, setUserId] = useMMKVStorage('userId', InitializeStorage, '');
+  const [absencer, setAbsencer] = useMMKVStorage(
+    'absencer',
+    InitializeStorage,
+    false,
+  );
+
   const [loading, setLoading] = useMMKVStorage(
     'loading',
     InitializeStorage,
     false,
   );
-  const [loader, setLoader] = useMMKVStorage('load', InitializeStorage, false);
   const [isLogin, setIsLogin] = useMMKVStorage(
     'authentication',
     InitializeStorage,
@@ -36,7 +41,7 @@ export const useStorage = () => {
     setUserId,
     loading,
     setLoading,
-    loader,
-    setLoader,
+    absencer,
+    setAbsencer,
   };
 };

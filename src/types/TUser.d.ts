@@ -11,3 +11,10 @@ export interface TUser {
   contract_end: string;
   login: boolean;
 }
+
+
+export interface TSummaries {
+    lateTrueCount: number;
+    lateFalseCount: number;
+    totalAbsences: number;
+}

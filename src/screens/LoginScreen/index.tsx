@@ -13,7 +13,6 @@ const isAndroid = Platform.OS === 'android';
 
 const LoginScreen = () => {
   const {setIsLogin, setToken, setUserId, setLoading, token, loading} = useStorage();
-  console.log(token, 'hjehe');
 
   const {assets, colors, gradients, sizes} = useTheme();
   const {replace} = useNavigation();
@@ -107,7 +106,7 @@ const LoginScreen = () => {
             padding={sizes.sm}
             radius={sizes.cardRadius}
             source={assets.background}
-            height={sizes.height * 0.35}>
+            height={sizes.height * 0.3}>
             <Text h4 center white marginBottom={sizes.md}>
               Welcome to Qontrol
             </Text>
@@ -125,8 +124,9 @@ const LoginScreen = () => {
         {/* login form */}
         <Block
           keyboard
+          height={120}
           behavior={!isAndroid ? 'padding' : 'height'}
-          marginTop={-(sizes.height * 0.1 - sizes.l)}>
+          marginTop={10}>
           <Block
             flex={0}
             radius={sizes.sm}
@@ -166,18 +166,17 @@ const LoginScreen = () => {
                   success={Boolean(logination.password && isValid.password)}
                   danger={Boolean(logination.password && !isValid.password)}
                 />
-              </Block>
-
               <Button
                 onPress={handleLogin}
                 marginVertical={sizes.s}
-                marginHorizontal={sizes.sm}
                 gradient={gradients.primary}
                 disabled={Object.values(isValid).includes(false)}>
                 <Text bold white transform="uppercase">
                   Sign In
                 </Text>
               </Button>
+              </Block>
+
             </Block>
           </Block>
         </Block>
